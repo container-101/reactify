@@ -1,0 +1,18 @@
+.header_container {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: mintcream;
+  padding: 30px 0px;
+}
+
+.header_content {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 40px;
+}
+
+.header_item {
+  padding: 10px 0px;
+  line-height: 10px;
+}
