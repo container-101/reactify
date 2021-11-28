@@ -1,0 +1,37 @@
+@use "sass:math";
+
+.Header_container {
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+
+  top: 0;
+  width: 100%;
+  background: linear-gradient(to right, rgba(#228be6, 0.5), rgba(#06d6a0, 0.5));
+  border-bottom: 1px solid #fff;
+  padding: 0px 60px;
+}
+
+.Header_content {
+  display: flex;
+  align-items: center;
+  width: math.div(100%, 3);
+  padding: 30px 0px;
+  &:nth-child(1) {
+    justify-content: flex-start;
+  }
+  &:nth-child(2) {
+    justify-content: space-evenly;
+  }
+  &:nth-child(3) {
+    justify-content: flex-end;
+  }
+}
+
+.Header_item {
+  line-height: 10px;
+}
+
+.Header_logo {
+  height: 36px;
+}

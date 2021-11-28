@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-import { Posts, Home, About } from "../pages";
-import { Header } from "../components";
-import "./App.css";
+import { Posts, Home, About } from "pages";
+import { Header } from "components";
+import "styles/App.scss";
 
 class App extends Component {
   render() {
@@ -16,14 +16,6 @@ class App extends Component {
             <Route path="/about" component={About} />
           </Switch>
           <Route path="/posts" component={Posts}></Route>
-          <div className="makewidth">asdasd</div>
-          <div className="makewidth">asdasd</div>
-          <div className="makewidth">asdasd</div>
-          <div className="makewidth">asdasd</div>
-          <div className="makewidth">asdasd</div>
-          <div className="makewidth">asdasd</div>
-          <div className="makewidth">asdasd</div>
-          <div className="makewidth">asdasd</div>
         </div>
       </div>
     );

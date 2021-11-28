@@ -1,13 +1,23 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { forwardRef } from "react";
+import PropTypes from "prop-types";
+import "./Button.scss";
 
-const Button = () => {
-  const activeStyle = {
-    color: "green",
-    fontsize: "2rem",
-  };
-
-  return <button type="button">abc</button>;
+const Button = ({ color, ref, children }) => {
+  return (
+    <button ref={ref} style={{ color: color }} className="Button" type="button">
+      {children}
+    </button>
+  );
 };
 
-export default Button;
+Button.defaultProps = {
+  color: "",
+  primary: false,
+};
+
+Button.propTypes = {
+  color: PropTypes.string,
+  primary: PropTypes.bool,
+};
+
+export default forwardRef(Button);

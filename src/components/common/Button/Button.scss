@@ -1,0 +1,38 @@
+$blue: #228be6; // 주석 선언
+$gray: #a3a3a3; // 주석 선언
+
+.Button {
+  display: inline-flex;
+  color: white;
+  font-weight: bold;
+  outline: none;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+
+  height: 2.25rem;
+  font-size: 1rem;
+}
+
+.Button .primary {
+  background: $blue; // 주석 사용
+  &:hover {
+    background: lighten($blue, 30%); // 색상 10% 밝게
+  }
+
+  &:active {
+    background: darken($blue, 30%); // 색상 10% 어둡게
+  }
+}
+
+.Button .secondary {
+  background: $gray;
+  &:hover {
+    background: lighten($gray, 30%);
+  }
+
+  &:active {
+    background: darken($gray, 30%);
+  }
+}
