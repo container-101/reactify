@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import { Posts, Home, About } from "pages";
-import { Header } from "components";
+import { Header, MNavigation } from "components";
 import "styles/App.scss";
 
 class App extends Component {
@@ -17,6 +17,7 @@ class App extends Component {
           </Switch>
           <Route path="/posts" component={Posts}></Route>
         </div>
+        <MNavigation />
       </div>
     );
   }

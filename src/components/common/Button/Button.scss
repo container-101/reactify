@@ -13,26 +13,26 @@ $gray: #a3a3a3; // 주석 선언
 
   height: 2.25rem;
   font-size: 1rem;
-}
+  display: table-cell;
+  vertical-align: middle;
 
-.Button .primary {
-  background: $blue; // 주석 사용
-  &:hover {
-    background: lighten($blue, 30%); // 색상 10% 밝게
-  }
-
-  &:active {
-    background: darken($blue, 30%); // 색상 10% 어둡게
-  }
-}
-
-.Button .secondary {
   background: $gray;
   &:hover {
-    background: lighten($gray, 30%);
+    background: lighten($gray, 10%);
   }
 
   &:active {
-    background: darken($gray, 30%);
+    background: darken($gray, 10%);
+  }
+}
+
+.Button.primary {
+  background: $blue;
+  &:hover {
+    background: lighten($blue, 30%);
+  }
+
+  &:active {
+    background: darken($blue, 30%);
   }
 }

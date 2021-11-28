@@ -1,0 +1,19 @@
+@import "../../../styles/mixins";
+
+.Nav-container {
+  @include mobile {
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+
+    top: 0;
+    width: 100%;
+    background: linear-gradient(
+      to right,
+      rgba(#228be6, 0.5),
+      rgba(#06d6a0, 0.5)
+    );
+    border-bottom: 1px solid #fff;
+    padding: 0px 60px;
+  }
+}
