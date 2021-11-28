@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Button } from "components";
+import { Button, Icon } from "components";
 import "./Header.scss";
 
 const Header = () => {
@@ -10,10 +10,11 @@ const Header = () => {
         <div className="Header_item">
           <img className="Header_logo" src="/logo.png" alt="logo" />
         </div>
+        {/* <Icon name="notification" /> */}
       </div>
       <div className="Header_content">
         <div className="Header_item">
-          <Button>G</Button>
+          <Button primary>G</Button>
         </div>
         <div className="Header_item">
           <NavLink exact to="/">

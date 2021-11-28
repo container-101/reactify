@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-import { Posts, Home, About } from "pages";
+import { Home, Noti, Profile, Star, House } from "pages";
 import { Header, MNavigation } from "components";
 import "styles/App.scss";
 
@@ -11,11 +11,10 @@ class App extends Component {
         <Header />
         <div className="app-content">
           <Route exact path="/" component={Home} />
-          <Switch>
-            <Route path="/about/:name" component={About} />
-            <Route path="/about" component={About} />
-          </Switch>
-          <Route path="/posts" component={Posts}></Route>
+          <Route exact path="/noti" component={Noti} />
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/star" component={Star} />
+          <Route exact path="/house" component={House} />
         </div>
         <MNavigation />
       </div>

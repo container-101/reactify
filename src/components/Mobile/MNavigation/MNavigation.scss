@@ -6,7 +6,8 @@
     position: fixed;
     justify-content: space-between;
 
-    top: 0;
+    bottom: 0;
+
     width: 100%;
     background: linear-gradient(
       to right,
@@ -15,5 +16,18 @@
     );
     border-bottom: 1px solid #fff;
     padding: 0px 60px;
+  }
+}
+
+.Nav-content {
+  @include mobile {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      height: 30px;
+      cursor: pointer;
+    }
   }
 }
