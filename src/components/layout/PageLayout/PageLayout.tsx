@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import { Header } from "components/common";
-import { Navigation } from "components/mobile";
+import { Header } from "@components/common";
+import { Navigation } from "@components/mobile";
 import classNames from "classnames";
 import styles from "./PageLayout.module.scss";
 

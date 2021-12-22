@@ -1,13 +1,12 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { Home, Noti, Star, House, Profile } from "pages";
-import { Header } from "components/common";
-import "styles/App.scss";
+import { Home, Noti, Star, House, Profile } from "@src/pages";
+import { PageLayout } from "@src/components/layout";
+import "@styles/App.scss";
 
 const App = () => {
   return (
-    <div>
-      <Header />
+    <PageLayout>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/noti" element={<Noti />} />
@@ -16,7 +15,7 @@ const App = () => {
         <Route path="/house" element={<House />} />
       </Routes>
       {/* <MBNavigation /> */}
-    </div>
+    </PageLayout>
   );
 };
 

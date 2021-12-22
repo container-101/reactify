@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Button } from "components/common";
+import { Button } from "@components/common";
 import "./Header.scss";
 
 const Header = () => {
