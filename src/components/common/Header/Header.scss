@@ -1,4 +1,5 @@
 @use "sass:math";
+@import "@styles/mixins";
 
 .Header_container {
   display: flex;
@@ -16,7 +17,7 @@
   display: flex;
   align-items: center;
   width: math.div(100%, 3);
-  padding: 30px 0px;
+  padding: $header-padding 0px;
   &:nth-child(1) {
     justify-content: flex-start;
   }
@@ -29,9 +30,9 @@
 }
 
 .Header_item {
-  line-height: 10px;
+  line-height: $header-font-height;
 }
 
 .Header_logo {
-  height: 36px;
+  height: $header-logo-height;
 }

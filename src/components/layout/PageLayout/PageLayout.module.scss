@@ -1,7 +1,7 @@
 @import "@styles/mixins";
 
 .container {
-  font-family: Roboto;
+  font-family: $base-font;
   font-style: normal;
   font-weight: normal;
   height: 100vh;
@@ -10,35 +10,31 @@
 }
 
 .content {
+  padding: $header-height 0px;
   width: 100%;
   max-width: $content-max-width;
   margin: 0 auto;
   flex-grow: 1;
-  // padding: 0 40px;
   &.full-width {
     max-width: unset;
   }
   &.fixed-height {
     overflow: hidden;
   }
-
-  @include mobile {
-    padding: 0;
-  }
 }
 
-.backward_btn {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 80vw;
-  @include desktop {
-    padding-top: 36px;
-  }
-  @include laptop {
-    max-width: 1220px;
-    padding: 36px 40px 4px 40px;
-  }
-  @include mobile {
-    padding: 18px 20px 2px 20px;
-  }
-}
+// .backward_btn {
+//   margin: 0 auto;
+//   width: 100%;
+//   max-width: 80vw;
+//   @include desktop {
+//     padding-top: 36px;
+//   }
+//   @include laptop {
+//     max-width: 1220px;
+//     padding: 36px 40px 4px 40px;
+//   }
+//   @include mobile {
+//     padding: 18px 20px 2px 20px;
+//   }
+// }

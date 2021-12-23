@@ -45,7 +45,7 @@ const PageLayout: FC<Props> = ({
         {children}
       </div>
       {/* {!removeFooter && <Footer />} */}
-      {<Navigation />}
+      {/* {<Navigation />} */}
     </div>
   );
 };

@@ -1,3 +1,4 @@
+$base-font: "Roboto";
 $base-color: #ffd951;
 $sub-color: #00b1d2;
 $font-black: #444444;
@@ -7,6 +8,12 @@ $font-link: #00b1d2;
 $payment: #6772e5;
 $black: #444444;
 $border: #dddddd;
+
+$header-padding: 20px;
+$header-logo-height: 36px;
+$header-font-height: 10px;
+$header-height-mobile: 40px;
+$header-height: $header-padding * 2 + $header-logo-height;
 
 $breakpoint-desktop: 768px;
 $breakpoint-laptop: 1400px;

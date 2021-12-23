@@ -1,10 +1,15 @@
-import { PageLayout } from "@components/layout";
-import React from "react";
+import { Timer } from "@src/components/common";
+import { ITimerTime } from "@src/core/interface/timer";
+import React, { FC } from "react";
 
-const Home = () => {
+interface IHomeProps {
+  timerInfo: ITimerTime;
+}
+
+const Home: FC<IHomeProps> = ({ timerInfo }) => {
   return (
-    <PageLayout>
-      <div
+    <>
+      {/* <div
         className="App-content"
         style={{
           background: `url(${"/assets/background.png"})`,
@@ -13,8 +18,9 @@ const Home = () => {
           backgroundSize: "cover",
           backgroundPosition: "50% 50%",
         }}
-      />
-    </PageLayout>
+      /> */}
+      <Timer timerInfo={timerInfo} />
+    </>
   );
 };
 
