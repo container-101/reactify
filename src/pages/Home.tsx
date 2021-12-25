@@ -1,4 +1,4 @@
-import { Timer } from "@src/components/common";
+import { Timer } from "@components/common";
 import { ITimerTime } from "@src/core/interface/timer";
 import React, { FC } from "react";
 

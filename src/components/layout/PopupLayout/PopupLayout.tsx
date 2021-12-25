@@ -6,12 +6,13 @@ import React, {
 } from "react";
 import styles from "./PopupLayout.module.scss";
 
-interface Props {
+interface IPopupLayoutProps {
   children: React.ReactNode;
   onClose: () => void;
 }
 
-const PopupLayout = ({ children, onClose }: Props) => {
+const PopupLayout = (props: IPopupLayoutProps) => {
+  const { children, onClose } = props;
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

@@ -7,6 +7,7 @@ import { ITimerTime } from "@src/core/interface/timer";
 
 const App = () => {
   const [timerInfo] = useState<ITimerTime>({ hh: 0, mm: 1, ss: 5 });
+
   return (
     <PageLayout>
       <Routes>
