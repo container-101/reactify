@@ -1,7 +1,8 @@
 import React from "react";
+import { Map } from "@components/common";
 
 const HousePage = () => {
-  return <div>하우스 리스트 소개 페이지입니다</div>;
+	return <Map />;
 };
 
 export default HousePage;
