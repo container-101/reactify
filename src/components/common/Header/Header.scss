@@ -2,37 +2,37 @@
 @import "@styles/mixins";
 
 .Header_container {
-  display: flex;
-  position: fixed;
-  justify-content: space-between;
+	display: flex;
+	position: fixed;
+	justify-content: space-between;
 
-  top: 0;
-  width: 100%;
-  background: linear-gradient(to right, rgba(#228be6, 0.5), rgba(#06d6a0, 0.5));
-  border-bottom: 1px solid #fff;
-  padding: 0px 60px;
+	top: 0;
+	width: 100%;
+	background: linear-gradient(to right, rgba(#228be6, 0.5), rgba(#06d6a0, 0.5));
+	border-bottom: 1px solid #fff;
+	padding: 0px 60px;
 }
 
 .Header_content {
-  display: flex;
-  align-items: center;
-  width: math.div(100%, 3);
-  padding: $header-padding 0px;
-  &:nth-child(1) {
-    justify-content: flex-start;
-  }
-  &:nth-child(2) {
-    justify-content: space-evenly;
-  }
-  &:nth-child(3) {
-    justify-content: flex-end;
-  }
+	display: flex;
+	align-items: center;
+	width: math.div(100%, 3);
+	padding: $header-padding 0px;
+	&:nth-child(1) {
+		justify-content: flex-start;
+	}
+	&:nth-child(2) {
+		justify-content: space-evenly;
+	}
+	&:nth-child(3) {
+		justify-content: flex-end;
+	}
 }
 
 .Header_item {
-  line-height: $header-font-height;
+	line-height: $header-font-height;
 }
 
 .Header_logo {
-  height: $header-logo-height;
+	height: $header-logo-height;
 }
