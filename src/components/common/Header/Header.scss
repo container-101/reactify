@@ -35,4 +35,7 @@
 
 .Header_logo {
 	height: $header-logo-height;
+	@include mobile {
+		display: none;
+	}
 }

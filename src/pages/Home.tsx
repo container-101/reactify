@@ -3,13 +3,13 @@ import { ITimerTime } from "@src/core/interface/timer";
 import React, { FC } from "react";
 
 interface IHomeProps {
-  timerInfo: ITimerTime;
+	timerInfo: ITimerTime;
 }
 
 const Home: FC<IHomeProps> = ({ timerInfo }) => {
-  return (
-    <>
-      {/* <div
+	return (
+		<>
+			{/* <div
         className="App-content"
         style={{
           background: `url(${"/assets/background.png"})`,
@@ -19,9 +19,10 @@ const Home: FC<IHomeProps> = ({ timerInfo }) => {
           backgroundPosition: "50% 50%",
         }}
       /> */}
-      <Timer timerInfo={timerInfo} />
-    </>
-  );
+			{/* <Timer timerInfo={timerInfo} />
+			 */}
+		</>
+	);
 };
 
 export default Home;

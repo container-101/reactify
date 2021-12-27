@@ -1,1 +1,2 @@
-export { default as Navigation } from "./navigation/navigation";
+export { default as BottomNavigation } from "./BottomNavigation/BottomNavigation";
+export { default as SideMenu } from "./SideMenu/SideMenu";
