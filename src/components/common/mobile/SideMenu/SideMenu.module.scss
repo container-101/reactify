@@ -1,12 +1,13 @@
 @import "@styles/mixins";
 
 .container {
+	z-index: 100;
 	@include desktop {
 		display: none;
 	}
 	@include mobile {
 		nav {
-			position: absolute;
+			position: fixed;
 			top: 0;
 			left: 0;
 			bottom: 0;
@@ -17,7 +18,7 @@
 			border: none;
 			user-select: none;
 			cursor: pointer;
-			position: absolute;
+			position: fixed;
 			top: 18px;
 			left: 15px;
 			width: 50px;
@@ -32,7 +33,7 @@
 		}
 		ul {
 			padding: 25px;
-			position: absolute;
+			position: fixed;
 			top: 100px;
 			width: 40vw;
 		}
@@ -47,12 +48,12 @@
 }
 
 .background {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	bottom: 0;
 	width: 40vw;
-	background: rgba(#fff, 0.5);
+	background: #fff;
 }
 
 .icon_placeholder {

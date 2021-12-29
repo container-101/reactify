@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Button } from "@components/common";
-import "./Header.scss";
 import { PopupLayout } from "@src/components/layout";
+import { useTranslation } from "react-i18next";
+import "./Header.scss";
+import { SideMenu } from "../mobile";
 
 interface IPopperProps {
 	onClose: () => void;
@@ -13,45 +15,49 @@ const Popper = ({ onClose }: IPopperProps) => {
 };
 
 const Header = () => {
+	const { t } = useTranslation("header");
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 
+	const toggleOpen = useCallback(() => {
+		setIsOpen((prev) => {
+			return !prev;
+		});
+	}, []);
+
 	return (
-		<div className="Header_container">
-			<div className="Header_content">
-				<div className="Header_item">
-					<img className="Header_logo" src="/logo192.png" alt="logo" />
+		<>
+			<header className="Header_container">
+				<div className="Header_content">
+					<div className="Header_item">
+						<img className="Header_logo" src="/logo192.png" alt="logo" />
+					</div>
+					{/* <Icon name="notification" /> */}
 				</div>
-				{/* <Icon name="notification" /> */}
-			</div>
-			<div className="Header_content">
-				<div className="Header_item">
-					<Button>G</Button>
+				<div className="Header_content Header_link">
+					<div className="Header_item">
+						<Button>{t("redirect.map")}</Button>
+					</div>
+					<div className="Header_item">
+						<NavLink to="/">
+							<Button>{t("redirect.home")}</Button>
+						</NavLink>
+					</div>
+					<div className="Header_item">
+						<NavLink to="/about">
+							<Button>{t("redirect.info")}</Button>
+						</NavLink>
+					</div>
 				</div>
-				<div className="Header_item">
-					<NavLink to="/">
-						<Button>Home</Button>
-					</NavLink>
+				<div className="Header_content Header_popup">
+					<div className="Header_item" onClick={toggleOpen}>
+						{t("popup")}
+					</div>
 				</div>
-				<div className="Header_item">
-					<NavLink to="/about">
-						<Button>Info</Button>
-					</NavLink>
-				</div>
-			</div>
-			<div className="Header_content">
-				<div
-					className="Header_item"
-					onClick={() =>
-						setIsOpen((prev) => {
-							return !prev;
-						})
-					}
-				>
-					Something
-				</div>
-			</div>
-			{isOpen && <Popper onClose={() => setIsOpen(false)} />}
-		</div>
+				{/* def popup for desktop & slider for mobile*/}
+				{isOpen && <Popper onClose={() => setIsOpen(false)} />}
+			</header>
+			<SideMenu onClose={() => setIsOpen(false)} />
+		</>
 	);
 };
 

@@ -1,26 +1,27 @@
 @import "@styles/mixins";
 
 .container {
-  font-family: $base-font;
-  font-style: normal;
-  font-weight: normal;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+	font-family: $base-font;
+	font-style: normal;
+	font-weight: normal;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
 .content {
-  padding: $header-height 0px;
-  width: 100%;
-  max-width: $content-max-width;
-  margin: 0 auto;
-  flex-grow: 1;
-  &.full-width {
-    max-width: unset;
-  }
-  &.fixed-height {
-    overflow: hidden;
-  }
+	padding: $header-height + 40px 0 0 0;
+	width: 100%;
+	min-height: 100vh;
+	max-width: $content-max-width;
+	margin: 0 auto;
+	flex-grow: 1;
+	&.full-width {
+		max-width: unset;
+	}
+	&.fixed-height {
+		overflow: hidden;
+	}
 }
 
 // .backward_btn {

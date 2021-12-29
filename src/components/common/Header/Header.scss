@@ -6,9 +6,10 @@
 	position: fixed;
 	justify-content: space-between;
 
+	z-index: 99;
 	top: 0;
 	width: 100%;
-	background: linear-gradient(to right, rgba(#228be6, 0.5), rgba(#06d6a0, 0.5));
+	background: linear-gradient(to right, #228be6, #06d6a0);
 	border-bottom: 1px solid #fff;
 	padding: 0px 60px;
 }
@@ -22,7 +23,7 @@
 		justify-content: flex-start;
 	}
 	&:nth-child(2) {
-		justify-content: space-evenly;
+		justify-content: center;
 	}
 	&:nth-child(3) {
 		justify-content: flex-end;
@@ -31,6 +32,18 @@
 
 .Header_item {
 	line-height: $header-font-height;
+}
+
+.Header_link {
+	> div {
+		margin-left: 10px;
+	}
+}
+
+.Header_popup {
+	@include mobile {
+		visibility: hidden;
+	}
 }
 
 .Header_logo {

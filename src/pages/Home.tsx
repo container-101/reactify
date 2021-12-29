@@ -1,6 +1,7 @@
 import { Timer } from "@components/common";
 import { ITimerTime } from "@src/core/interface/timer";
 import React, { FC } from "react";
+import styles from "@styles/pages/home.module.scss";
 
 interface IHomeProps {
 	timerInfo: ITimerTime;
@@ -8,7 +9,7 @@ interface IHomeProps {
 
 const Home: FC<IHomeProps> = ({ timerInfo }) => {
 	return (
-		<>
+		<main className={styles.container}>
 			{/* <div
         className="App-content"
         style={{
@@ -19,9 +20,8 @@ const Home: FC<IHomeProps> = ({ timerInfo }) => {
           backgroundPosition: "50% 50%",
         }}
       /> */}
-			{/* <Timer timerInfo={timerInfo} />
-			 */}
-		</>
+			<Timer timerInfo={timerInfo} />
+		</main>
 	);
 };
 

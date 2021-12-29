@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { PageLayout } from "@src/components/layout";
-import { BottomNavigation, SideMenu } from "@src/components/mobile";
+import { BottomNavigation, SideMenu } from "@src/components/common/mobile";
 import { Home, Noti, Star, House, Profile } from "@src/pages";
 import { ITimerTime } from "@src/core/interface/timer";
+// import for global localization
+import "@utils/i18n";
 import "@styles/App.scss";
 
 const App = () => {
@@ -18,7 +20,6 @@ const App = () => {
 				<Route path="/profile" element={<Profile />} />
 				<Route path="/house" element={<House />} />
 			</Routes>
-			<SideMenu />
 			<BottomNavigation />
 		</PageLayout>
 	);

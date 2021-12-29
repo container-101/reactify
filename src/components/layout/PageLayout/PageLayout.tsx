@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Header } from "@components/common";
+import { Footer, Header } from "@components/common";
 import classNames from "classnames";
 import styles from "./PageLayout.module.scss";
 
@@ -45,6 +45,7 @@ const PageLayout: FC<Props> = ({
 			</div>
 			{/* {!removeFooter && <Footer />} */}
 			{/* {<Navigation />} */}
+			<Footer />
 		</div>
 	);
 };
