@@ -1,13 +1,18 @@
+import { LangConext } from "@src/core/context/Store";
 import i18n from "@src/utils/i18n";
-import React, { useCallback } from "react";
+import React, { useCallback, useContext } from "react";
 import styles from "./Footer.module.scss";
 
 interface Props {}
 
 const Footer = (props: Props) => {
+	const { lang, toggleLang } = useContext(LangConext);
+
 	const handleLanguageChange = useCallback(() => {
-		i18n.changeLanguage("en");
-	}, []);
+		const nextLang = lang === "en" ? "ko" : "en";
+		i18n.changeLanguage(nextLang);
+		toggleLang(nextLang);
+	}, [lang, toggleLang]);
 
 	return (
 		<footer className={styles.container}>

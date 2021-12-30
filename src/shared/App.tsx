@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { PageLayout } from "@src/components/layout";
-import { BottomNavigation, SideMenu } from "@src/components/common/mobile";
+import { BottomNavigation } from "@src/components/common/mobile";
 import { Home, Noti, Star, House, Profile } from "@src/pages";
 import { ITimerTime } from "@src/core/interface/timer";
 // import for global localization
 import "@utils/i18n";
 import "@styles/App.scss";
 
-const App = () => {
+function App() {
 	const [timerInfo] = useState<ITimerTime>({ hh: 0, mm: 1, ss: 5 });
 
 	return (
@@ -23,6 +23,6 @@ const App = () => {
 			<BottomNavigation />
 		</PageLayout>
 	);
-};
+}
 
 export default App;

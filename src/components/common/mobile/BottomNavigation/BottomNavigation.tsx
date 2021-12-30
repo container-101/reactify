@@ -4,7 +4,7 @@ import "./BottomNavigation.scss";
 
 const MBNavigation = () => {
 	return (
-		<div className="Nav-container">
+		<nav className="Nav-container">
 			<div className="Nav-content">
 				<NavLink to="/">
 					<img src="/logo.png" alt="home" />
@@ -25,7 +25,7 @@ const MBNavigation = () => {
 					<img src="assets/star.svg" alt="star" />
 				</NavLink>
 			</div>
-		</div>
+		</nav>
 	);
 };
 
