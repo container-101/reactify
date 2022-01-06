@@ -1,7 +1,19 @@
 import React from "react";
+import { PageTransition } from "@src/components/common";
+import { PageLayout } from "@src/components/layout";
 
-const Post = () => {
-  return <div>포스트 asdasd</div>;
+const NotificationPage = () => {
+	return (
+		<PageLayout fullWidth>
+			<PageTransition>
+				{Array(10)
+					.fill(1)
+					.map((_, index) => {
+						return <div>abc</div>;
+					})}
+			</PageTransition>
+		</PageLayout>
+	);
 };
 
-export default Post;
+export default NotificationPage;

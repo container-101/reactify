@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { Footer, Header } from "@components/common";
 import classNames from "classnames";
 import styles from "./PageLayout.module.scss";
+import { BottomNavigation } from "@src/components/common/mobile";
 
 interface Props {
 	className?: string;
@@ -26,7 +27,7 @@ const PageLayout: FC<Props> = ({
 	primaryHeader = false,
 }) => {
 	return (
-		<div className={classNames(styles.container, className)}>
+		<main className={classNames(styles.container, className)}>
 			{/* {fixedHeight && (
         <style jsx global>{`
           body {
@@ -43,10 +44,9 @@ const PageLayout: FC<Props> = ({
 			>
 				{children}
 			</div>
-			{/* {!removeFooter && <Footer />} */}
-			{/* {<Navigation />} */}
-			<Footer />
-		</div>
+			{!removeFooter && <Footer />}
+			<BottomNavigation />
+		</main>
 	);
 };
 

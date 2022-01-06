@@ -1,9 +1,11 @@
-export default {
+const enLocaleHeader = {
 	mode: "en",
 	redirect: {
 		map: "Map",
 		home: "Home",
-		info: "Info",
+		profile: "Profile",
 	},
 	popup: "Popup",
 };
+
+export default enLocaleHeader;

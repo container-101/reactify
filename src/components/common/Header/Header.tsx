@@ -35,7 +35,9 @@ const Header = () => {
 				</div>
 				<div className="Header_content Header_link">
 					<div className="Header_item">
-						<Button>{t("redirect.map")}</Button>
+						<NavLink to="/house">
+							<Button>{t("redirect.map")}</Button>
+						</NavLink>
 					</div>
 					<div className="Header_item">
 						<NavLink to="/">
@@ -43,8 +45,8 @@ const Header = () => {
 						</NavLink>
 					</div>
 					<div className="Header_item">
-						<NavLink to="/about">
-							<Button>{t("redirect.info")}</Button>
+						<NavLink to="/profile">
+							<Button>{t("redirect.profile")}</Button>
 						</NavLink>
 					</div>
 				</div>

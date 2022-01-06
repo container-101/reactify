@@ -12,6 +12,24 @@ export const framerVar = {
 	},
 };
 
+// for Page Transition
+export const framerPageTrans = {
+	initial: {
+		opacity: 0,
+		x: "-100vw",
+	},
+	animate: {
+		opacity: 1,
+		y: 0,
+		x: 0,
+		transition: {
+			duration: 0.5,
+			ease: [0.1, 1, 0.88, 1],
+		},
+	},
+};
+
+// for Mobile SideMenu Component
 export const framerSideNav = {
 	open: {
 		transition: { staggerChildren: 0.07, delayChildren: 0.2 },
