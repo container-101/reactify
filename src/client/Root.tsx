@@ -2,8 +2,9 @@ import React, { useCallback, useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import App from "@src/shared/App";
 import Store from "@src/core/context/Store";
-import { ModalPortals } from "@components/portals";
+import { ModalPortal } from "@components/portals";
 import { ModalLayout } from "@src/components/layout";
+import { SigninModal } from "@src/components/modal";
 
 const Root = () => {
 	const [modal, setModal] = useState(false);
@@ -18,12 +19,12 @@ const Root = () => {
 				<App />
 			</Router>
 
-			<ModalPortals>
-				<ModalLayout
+			<ModalPortal>
+				<SigninModal
 					show={modal}
 					handleModalShow={handleModalShow}
-				></ModalLayout>
-			</ModalPortals>
+				></SigninModal>
+			</ModalPortal>
 			<div>
 				<button
 					type="button"

@@ -1,23 +1,55 @@
-import React, { ForwardedRef, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import classNames from "classnames";
-import "./Button.scss";
+import { btnSizes, btnStyles } from "@utils/constants";
+import styles from "./Button.module.scss";
 
-interface IButtonProps {
-	color?: string;
-	primary?: boolean;
-	children: React.ReactNode;
+interface Props {
+	type?: "button" | "submit" | "reset";
+	className?: string;
+	btnSize?: btnSizes;
+	btnStyles?: btnStyles;
+	hover?: boolean;
+	focus?: boolean;
+	disabled?: boolean;
+	social?: "google";
+	fullWidth?: boolean;
+	children?: React.ReactNode;
 }
 
 const Button = (
-	{ color, primary = false, children }: IButtonProps,
-	ref: ForwardedRef<HTMLButtonElement>,
+	{
+		type = "button",
+		className,
+		btnSize = "medium",
+		btnStyles = "default",
+		hover = false,
+		focus = false,
+		disabled = false,
+		social,
+		fullWidth,
+		children,
+		...props
+	}: Props,
+	ref: React.Ref<HTMLButtonElement>,
 ) => {
 	return (
 		<button
 			ref={ref}
-			style={{ color }}
-			className={classNames("Button", { primary })}
-			type="button"
+			type={type}
+			className={classNames(
+				className,
+				styles.ctn,
+				styles[btnStyles],
+				styles[btnSize],
+				{
+					[styles.fullWidth]: fullWidth,
+					[styles.hover]: hover,
+					[styles.focus]: focus,
+					[styles.disabled]: disabled,
+					[styles.google]: social === "google",
+				},
+			)}
+			{...props}
 		>
 			{children}
 		</button>

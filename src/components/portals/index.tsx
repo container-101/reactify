@@ -1,1 +1,1 @@
-export { default as ModalPortals } from "./ModalPortals";
+export { default as ModalPortal } from "./ModalPortal";

@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 function ModalPortals({ children }: { children: React.ReactChild }) {
-	const modalElement = document.querySelector("#modal") as Element;
+	const modalElement = document.getElementById("modal") as Element;
 	return ReactDOM.createPortal(children, modalElement);
 }
 

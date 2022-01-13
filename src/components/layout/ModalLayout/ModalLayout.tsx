@@ -8,7 +8,11 @@ interface Props {
 	children?: React.ReactNode;
 }
 
-export default function Modal({ show, handleModalShow, children }: Props) {
+export default function ModalLayout({
+	show,
+	handleModalShow,
+	children,
+}: Props) {
 	return (
 		<div className={classNames(styles.modal_wrap, { [styles.active]: show })}>
 			<div
@@ -18,7 +22,7 @@ export default function Modal({ show, handleModalShow, children }: Props) {
 				}}
 			/>
 			<div className={styles.modal_con}>
-				<div className={styles.contents}>모달이 열렸다!</div>
+				<div className={styles.contents}>{children}</div>
 				<div className={styles.bottom}>
 					<button
 						type="button"
