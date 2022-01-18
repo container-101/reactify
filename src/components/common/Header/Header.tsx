@@ -36,17 +36,17 @@ const Header = () => {
 				<div className="Header_content Header_link">
 					<div className="Header_item">
 						<NavLink to="/house">
-							<Button>{t("redirect.map")}</Button>
+							<Button fullWidth>{t("redirect.map")}</Button>
 						</NavLink>
 					</div>
 					<div className="Header_item">
 						<NavLink to="/">
-							<Button>{t("redirect.home")}</Button>
+							<Button fullWidth>{t("redirect.home")}</Button>
 						</NavLink>
 					</div>
 					<div className="Header_item">
 						<NavLink to="/profile">
-							<Button>{t("redirect.profile")}</Button>
+							<Button fullWidth>{t("redirect.profile")}</Button>
 						</NavLink>
 					</div>
 				</div>
