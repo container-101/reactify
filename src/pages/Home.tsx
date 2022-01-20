@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { PageTransition, Timer } from "@components/common";
+import { PageTransition, Range, Timer } from "@components/common";
 import { ITimerTime } from "@src/core/interface/timer";
 import styles from "@styles/pages/home.module.scss";
 import { PageLayout } from "@src/components/layout";
@@ -16,6 +16,7 @@ const Home: FC<IHomeProps> = ({ timerInfo }) => {
 					<Timer timerInfo={timerInfo} />
 				</div>
 			</PageTransition>
+			{/* <Range /> */}
 		</PageLayout>
 	);
 };

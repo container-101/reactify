@@ -6,3 +6,4 @@ export { default as InputBox } from "./InputBox/InputBox";
 export { default as Map } from "./Map/Map";
 export { default as Timer } from "./Timer/Timer";
 export { default as PageTransition } from "./PageTransition/PageTransition";
+export { default as Range } from "./Range/Range";
