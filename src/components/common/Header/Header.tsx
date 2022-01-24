@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 import { Button } from "@components/common";
 import { PopupLayout } from "@src/components/layout";
 import { useTranslation } from "react-i18next";
+import SideMenu from "./SideMenu/SideMenu";
 import "./Header.scss";
-import { SideMenu } from "../mobile";
 
 interface IPopperProps {
 	onClose: () => void;

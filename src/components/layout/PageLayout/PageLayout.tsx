@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { Footer, Header } from "@components/common";
 import classNames from "classnames";
 import styles from "./PageLayout.module.scss";
-import { BottomNavigation } from "@src/components/common/mobile";
+import BottomNavigation from "./BottomNavigation/BottomNavigation";
 
 interface Props {
 	className?: string;
