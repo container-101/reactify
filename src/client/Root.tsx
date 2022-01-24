@@ -3,7 +3,6 @@ import { BrowserRouter as Router } from "react-router-dom";
 import App from "@src/shared/App";
 import Store from "@src/core/context/Store";
 import { ModalPortal } from "@components/portals";
-import { ModalLayout } from "@src/components/layout";
 import { SigninModal } from "@src/components/modal";
 
 const Root = () => {

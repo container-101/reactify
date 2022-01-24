@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import queryString from "query-string";
 import { useLocation, useParams } from "react-router-dom";
 import { PageLayout } from "@src/components/layout";
-import { PageTransition } from "@src/components/common";
 import useMouse from "@react-hook/mouse-position";
 import styles from "@styles/pages/profile.module.scss";
 
@@ -37,13 +36,11 @@ const ProfilePage = () => {
 	const detail = query.detail === "true";
 
 	return (
-		<PageLayout fullWidth>
-			<PageTransition>
-				<div ref={shadowRef} className={styles.shadow}>
-					<h1 ref={targetRef}>About {name}</h1>
-					{detail && "detail:blahblah"}
-				</div>
-			</PageTransition>
+		<PageLayout fullWidth enablePageTransition>
+			<div ref={shadowRef} className={styles.shadow}>
+				<h1 ref={targetRef}>About {name}</h1>
+				{detail && "detail:blahblah"}
+			</div>
 		</PageLayout>
 	);
 };

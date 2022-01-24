@@ -1,8 +1,9 @@
-import React, { FC } from "react";
+import React, { FC, useMemo } from "react";
 import { Footer, Header } from "@components/common";
 import classNames from "classnames";
 import styles from "./PageLayout.module.scss";
 import BottomNavigation from "./BottomNavigation/BottomNavigation";
+import PageTransition from "./PageTransition/PageTransition";
 
 interface Props {
 	className?: string;
@@ -13,6 +14,7 @@ interface Props {
 	backwardURL?: string;
 	backwardEnabled?: boolean;
 	primaryHeader?: boolean;
+	enablePageTransition?: boolean;
 }
 
 const PageLayout: FC<Props> = ({
@@ -25,6 +27,7 @@ const PageLayout: FC<Props> = ({
 	backwardURL = "/",
 	backwardEnabled = false,
 	primaryHeader = false,
+	enablePageTransition = false,
 }) => {
 	return (
 		<main className={classNames(styles.container, className)}>
@@ -42,7 +45,11 @@ const PageLayout: FC<Props> = ({
 					[styles["fixed-height"]]: fixedHeight,
 				})}
 			>
-				{children}
+				{enablePageTransition ? (
+					<PageTransition>{children}</PageTransition>
+				) : (
+					<>{children}</>
+				)}
 			</div>
 			{!removeFooter && <Footer />}
 			<BottomNavigation />

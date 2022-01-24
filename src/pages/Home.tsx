@@ -1,22 +1,14 @@
-import React, { FC } from "react";
-import { PageTransition, Range, Timer } from "@components/common";
-import { ITimerTime } from "@src/core/interface/timer";
+import { FC } from "react";
 import styles from "@styles/pages/home.module.scss";
 import { PageLayout } from "@src/components/layout";
+import { Calendar } from "@src/components/common";
 
-interface IHomeProps {
-	timerInfo: ITimerTime;
-}
-
-const Home: FC<IHomeProps> = ({ timerInfo }) => {
+const Home: FC = () => {
 	return (
-		<PageLayout>
-			<PageTransition>
-				<div className={styles.container}>
-					<Timer timerInfo={timerInfo} />
-				</div>
-			</PageTransition>
-			{/* <Range /> */}
+		<PageLayout enablePageTransition>
+			<div className={styles.container}>
+				<Calendar />
+			</div>
 		</PageLayout>
 	);
 };
