@@ -4,7 +4,7 @@ import { DayPicker } from "react-dates";
 type Props = {};
 
 const Calendar = (props: Props) => {
-	return <div></div>;
+	return <DayPicker numberOfMonths={1} hideKeyboardShortcutsPanel />;
 };
 
 export default Calendar;
