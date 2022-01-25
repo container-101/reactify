@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
+import React, {
+	useCallback,
+	useContext,
+	useEffect,
+	useMemo,
+	useState,
+} from "react";
 import {
 	DayPickerSingleDateController,
 	isSameDay,
@@ -17,6 +23,7 @@ import { IAdventCalendarItem } from "@core/interface/advent-calendar";
 // Todo Remove Dummy Data & Change to API Call
 import { calendarAllData } from "@core/data/advent-calendar";
 import { isInclusivelyBeforeDay, isInclusivelyAfterDay } from "react-dates";
+import { ModalConext } from "@src/core/context/ModalStore";
 
 // react dates
 export default React.PureComponent;
@@ -28,35 +35,12 @@ interface IInputs {
 }
 
 export const Calendar = () => {
-	const winSize = useWindowSize();
+	const { handleModal } = useContext(ModalConext);
 	const [calendars, setCalendars] = useState<IAdventCalendarItem[]>();
 	const [Inputs, setInputs] = useState<IInputs>({
 		focused: true,
 		date: null,
 	});
-
-	const renderDayContents = useCallback(
-		(day: moment.Moment, modifiers: ModifiersShape) => {
-			return (
-				<div className={styles.day_content}>
-					<div className={styles.day_text}>{day.format("D")}</div>
-					<div className={styles.day_profile}>
-						<span>
-							<img
-								src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=30&h=30&q=80"
-								width={20}
-								height={20}
-								alt=""
-							/>
-						</span>
-						<span>{"@zp_advent"}</span>
-					</div>
-					<p>{"Introducing SQL asdasd"}</p>
-				</div>
-			);
-		},
-		[],
-	);
 
 	// Logics for Data Fetching
 	const getCalendarData = useCallback(async () => {
@@ -73,12 +57,15 @@ export const Calendar = () => {
 		getCalendarData();
 	}, [getCalendarData]);
 
-	const getDateList = useMemo(() => {
-		return calendars
-			? calendars.map((data) => {
-					return moment(data.regDateTime);
-			  })
-			: [];
+	const DateList = useMemo(() => {
+		let mapObj = new Map<string, IAdventCalendarItem>();
+		for (const key in calendars) {
+			const newKey = moment(calendars[Number(key)].regDateTime).format(
+				"YYYY-MM-DD",
+			);
+			mapObj.set(newKey, calendars[Number(key)]);
+		}
+		return mapObj;
 	}, [calendars]);
 
 	// Logics for Calendar Control
@@ -86,13 +73,15 @@ export const Calendar = () => {
 		return <div className={styles.week_header}>{day}</div>;
 	}, []);
 
-	const handleDateChange = () => {};
+	const handleDateChange = useCallback((date: Moment | null) => {
+		setInputs((prev) => ({ ...prev, date }));
+	}, []);
 
 	const handleFocusChange = () => {
 		setInputs({ ...Inputs, focused: true });
 	};
 
-	const renderCalendarInfo = () => {
+	const renderCalendarInfo = useCallback(() => {
 		return (
 			<ol>
 				<li>한 칸에 한 명만 등록할 수 있습니다</li>
@@ -104,7 +93,43 @@ export const Calendar = () => {
 				<li>자신이 쓴 글을 수정할 수 없다면 관리자에게 문의해주세요</li>
 			</ol>
 		);
-	};
+	}, []);
+
+	const handleDayCellClick = useCallback(() => {}, []);
+
+	const renderDayContents = useCallback(
+		(day: moment.Moment, modifiers: ModifiersShape) => {
+			const result = DateList.get(day.format("YYYY-MM-DD"));
+			return (
+				<div className={styles.day_content} onClick={handleDayCellClick}>
+					<div className={styles.day_text}>{day.format("D")}</div>
+					{modifiers.has("valid") &&
+						(modifiers.has("highlighted-calendar") ? (
+							<>
+								<div className={styles.day_profile}>
+									<span>
+										<img
+											src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=30&h=30&q=80"
+											width={20}
+											height={20}
+											alt=""
+										/>
+									</span>
+									<span>{result?.name}</span>
+								</div>
+								<p>{result?.body}&nbsp;</p>
+							</>
+						) : (
+							<>
+								<div className={styles.plus}>+</div>
+								<div />
+							</>
+						))}
+				</div>
+			);
+		},
+		[DateList, handleDayCellClick],
+	);
 
 	return (
 		<DayPickerSingleDateController
@@ -119,14 +144,16 @@ export const Calendar = () => {
 					moment(process.env.REACT_APP_CALENDAR_END_DATE),
 				)
 			}
-			transitionDuration={500}
+			transitionDuration={300}
 			daySize={150}
 			numberOfMonths={1}
 			hideKeyboardShortcutsPanel
 			focused={Inputs.focused}
 			date={Inputs.date}
 			isDayHighlighted={(day1) =>
-				getDateList.some((day2) => isSameDay(day1, day2))
+				Array.from(DateList.keys()).some((day2) =>
+					isSameDay(day1, moment(day2)),
+				)
 			}
 			onDateChange={handleDateChange}
 			onFocusChange={handleFocusChange}

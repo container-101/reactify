@@ -10,7 +10,7 @@
 
 .day_text {
 	display: inherit;
-	justify-content: baseline;
+	justify-content: flex-start;
 }
 
 .day_profile {
@@ -24,4 +24,9 @@
 
 .week_header {
 	color: black;
+}
+
+.plus {
+	font-size: 40px;
+	line-height: 20px;
 }
