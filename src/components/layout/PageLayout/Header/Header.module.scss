@@ -1,0 +1,48 @@
+@use "sass:math";
+@import "@styles/mixins";
+
+.container {
+	display: flex;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	z-index: 20;
+
+	justify-content: space-between;
+	padding: $header-padding 80px;
+
+	background: linear-gradient(to right, rgb(203, 216, 181), rgb(113, 114, 71));
+	border-bottom: 1px solid #fff;
+
+	@include mobile {
+		padding: $mb-header-padding 80px;
+	}
+}
+
+.content {
+	display: flex;
+	align-items: center;
+	width: math.div(100%, 2);
+}
+
+.item {
+	line-height: $header-font-height;
+}
+
+.logo {
+	justify-content: flex-start;
+}
+
+.popup {
+	justify-content: flex-end;
+	@include mobile {
+		visibility: hidden;
+	}
+}
+
+.logo_img {
+	height: $header-logo-height;
+	@include mobile {
+		display: none;
+	}
+}

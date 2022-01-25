@@ -3,8 +3,9 @@ import { NavLink } from "react-router-dom";
 import { Button } from "@components/common";
 import { PopupLayout } from "@src/components/layout";
 import { useTranslation } from "react-i18next";
+import classNames from "classnames";
 import SideMenu from "./SideMenu/SideMenu";
-import "./Header.scss";
+import styles from "./Header.module.scss";
 
 interface IPopperProps {
 	onClose: () => void;
@@ -26,36 +27,17 @@ const Header = () => {
 
 	return (
 		<>
-			<header className="Header_container">
-				<div className="Header_content">
-					<div className="Header_item">
-						<img className="Header_logo" src="/logo192.png" alt="logo" />
-					</div>
-					{/* <Icon name="notification" /> */}
-				</div>
-				<div className="Header_content Header_link">
-					<div className="Header_item">
-						<NavLink to="/house">
-							<Button fullWidth>{t("redirect.map")}</Button>
-						</NavLink>
-					</div>
-					<div className="Header_item">
-						<NavLink to="/">
-							<Button fullWidth>{t("redirect.home")}</Button>
-						</NavLink>
-					</div>
-					<div className="Header_item">
-						<NavLink to="/profile">
-							<Button fullWidth>{t("redirect.profile")}</Button>
-						</NavLink>
+			<header className={styles.container}>
+				<div className={(styles.content, styles.logo)}>
+					<div className={styles.item}>
+						<img className={styles.logo_img} src="/logo192.png" alt="logo" />
 					</div>
 				</div>
-				<div className="Header_content Header_popup">
-					<div className="Header_item" onClick={toggleOpen}>
+				<div className={classNames(styles.content, styles.popup)}>
+					<div className={styles.item} onClick={toggleOpen}>
 						{t("popup")}
 					</div>
 				</div>
-				{/* def popup for desktop & slider for mobile*/}
 				{isOpen && <Popper onClose={() => setIsOpen(false)} />}
 			</header>
 			<SideMenu onClose={() => setIsOpen(false)} />

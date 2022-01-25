@@ -5,7 +5,7 @@ import { Calendar } from "@src/components/common";
 
 const Home: FC = () => {
 	return (
-		<PageLayout enablePageTransition fullWidth>
+		<PageLayout enablePageTransition>
 			<div className={styles.container}>
 				<Calendar />
 			</div>

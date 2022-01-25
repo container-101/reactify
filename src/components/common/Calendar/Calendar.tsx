@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { DayPicker, ModifiersShape } from "react-dates";
 import moment, { Moment } from "moment";
 import "react-dates/initialize";
@@ -20,13 +20,16 @@ export const Calendar = () => {
 	const [curDate, setCurDate] = useState<Moment>(() => moment());
 	const [calendars, setCalendars] = useState<IAdventCalendarItem[]>();
 
-	const renderDayContents = (day: moment.Moment, modifiers: ModifiersShape) => {
-		return <div className={styles.date_box}>{day.format("YYYY")}</div>;
-	};
+	const renderDayContents = useCallback(
+		(day: moment.Moment, modifiers: ModifiersShape) => {
+			return <div className={styles.date_box}>{day.format("YYYY")}</div>;
+		},
+		[],
+	);
 
-	const renderWeekHeaderElement = (day: string) => {
+	const renderWeekHeaderElement = useCallback((day: string) => {
 		return <div className={styles.week_header}>{day}</div>;
-	};
+	}, []);
 
 	const getCalendarData = async () => {
 		// const data = await getAllCalendar();
@@ -42,7 +45,7 @@ export const Calendar = () => {
 		<div className={styles.container}>
 			<DayPicker
 				transitionDuration={10}
-				daySize={100}
+				daySize={150}
 				numberOfMonths={1}
 				hideKeyboardShortcutsPanel
 				renderDayContents={renderDayContents}

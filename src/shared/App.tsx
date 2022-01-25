@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { Home, Noti, House, Profile } from "@src/pages";
+import { Home, Profile } from "@src/pages";
 // import for global localization
 import "@utils/i18n";
 import "@styles/App.scss";
@@ -11,9 +11,7 @@ function App() {
 		<main>
 			<Routes>
 				<Route path="/" element={<Home />} />
-				<Route path="/noti" element={<Noti />} />
 				<Route path="/profile" element={<Profile />} />
-				<Route path="/house" element={<House />} />
 			</Routes>
 		</main>
 	);
