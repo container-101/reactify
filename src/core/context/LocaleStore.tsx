@@ -6,11 +6,11 @@ export const LangConext = createContext({
 	toggleLang: (inputLang: iLanguage) => {},
 });
 
-interface IStoreProps {
+interface ILocaleStoreProps {
 	children: React.ReactNode;
 }
 
-const Store = ({ children }: IStoreProps) => {
+const LocaleStore = ({ children }: ILocaleStoreProps) => {
 	const [lang, setLang] = useState("ko");
 
 	const toggleLang = (inputLang: iLanguage) => {
@@ -24,4 +24,4 @@ const Store = ({ children }: IStoreProps) => {
 	);
 };
 
-export default Store;
+export default LocaleStore;
