@@ -2,8 +2,8 @@ import React, { FC } from "react";
 
 interface IHozLineProps {
 	className?: string;
-	height: number;
-	color: string;
+	height?: number;
+	color?: string;
 	margin?: number;
 }
 
