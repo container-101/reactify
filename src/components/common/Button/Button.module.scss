@@ -67,10 +67,8 @@
 // btn styles
 .default {
 	color: #222;
-	background-color: #fbfbfb;
-	background-image: linear-gradient(to bottom, #fbfbfb 0%, #ececec 100%);
-	background-repeat: repeat-x;
-	border-color: #ccc;
+	background-color: white;
+	border: 1px solid gray;
 
 	&:active,
 	&.active {

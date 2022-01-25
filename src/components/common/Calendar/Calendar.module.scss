@@ -1,9 +1,25 @@
-.date_box {
+.day_content {
 	width: 100%;
 	height: 100%;
+	padding: 10px;
 	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	border: 1px solid black;
+}
+
+.day_text {
+	display: inherit;
+	justify-content: baseline;
+}
+
+.day_profile {
+	display: inherit;
+	gap: 8px;
 	align-items: center;
-	justify-content: center;
+	img {
+		border-radius: 10px;
+	}
 }
 
 .week_header {

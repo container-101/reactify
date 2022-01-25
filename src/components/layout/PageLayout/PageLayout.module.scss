@@ -4,7 +4,6 @@
 	font-family: $base-font;
 	font-style: normal;
 	font-weight: normal;
-	height: 100vh;
 	display: flex;
 	flex-direction: column;
 }
@@ -15,7 +14,6 @@
 	min-height: 100vh;
 	max-width: $content-max-width;
 	margin: 0 auto;
-	flex-grow: 1;
 	&.full-width {
 		max-width: unset;
 	}
