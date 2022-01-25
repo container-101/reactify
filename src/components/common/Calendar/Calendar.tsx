@@ -17,10 +17,12 @@ import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
 import "./react_dates_overrides.scss";
 import styles from "./Calendar.module.scss";
+import { toast } from "react-toastify";
 import useWindowSize from "@core/hooks/useWindowSize";
 import { IAdventCalendarItem } from "@core/interface/advent-calendar";
 
 // Todo Remove Dummy Data & Change to API Call
+import { getAllCalendar } from "@core/api/advent-calendar";
 import { calendarAllData } from "@core/data/advent-calendar";
 import { isInclusivelyBeforeDay, isInclusivelyAfterDay } from "react-dates";
 import { ModalConext } from "@src/core/context/ModalStore";
@@ -49,7 +51,7 @@ export const Calendar = () => {
 			const data = calendarAllData;
 			setCalendars(data);
 		} catch (err) {
-			console.log("Data Fetching failed");
+			toast.error("Data Fetching failed");
 		}
 	}, []);
 
