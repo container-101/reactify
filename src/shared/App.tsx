@@ -3,9 +3,8 @@ import { Home, Noti, House, Profile } from "@src/pages";
 // import for global localization
 import "@utils/i18n";
 import "@styles/App.scss";
-import "react-dates/initialize";
-import "react-dates/lib/css/_datepicker.css";
-import "@styles/react_dates_overrides.scss";
+import axios from "axios";
+axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
 
 function App() {
 	return (
