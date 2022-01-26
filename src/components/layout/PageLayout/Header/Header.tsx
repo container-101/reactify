@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "@components/common";
 import { useTranslation } from "react-i18next";
 import classNames from "classnames";
 import HeaderPopup from "@components/popup/HeaderPopup";
@@ -23,7 +22,7 @@ const Header = () => {
 				<div className={(styles.content, styles.logo)}>
 					<div className={styles.item}>
 						<Link to="/">
-							<img className={styles.logo_img} src="/logo192.png" alt="logo" />
+							<img className={styles.logo_img} src="/logo64.png" alt="logo" />
 						</Link>
 					</div>
 				</div>

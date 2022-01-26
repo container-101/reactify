@@ -1,1 +1,3 @@
-export type TModal = "signin";
+export type LoginModal = "LOGIN";
+
+export type TModal = LoginModal;

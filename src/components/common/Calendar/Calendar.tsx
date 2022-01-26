@@ -25,7 +25,7 @@ import { IAdventCalendarItem } from "@core/interface/advent-calendar";
 import { getAllCalendar } from "@core/api/advent-calendar";
 import { calendarAllData } from "@core/data/advent-calendar";
 import { isInclusivelyBeforeDay, isInclusivelyAfterDay } from "react-dates";
-import { ModalConext } from "@src/core/context/ModalStore";
+import { useModal } from "@src/core/context/ModalStore";
 
 // react dates
 export default React.PureComponent;
@@ -37,7 +37,7 @@ interface IInputs {
 }
 
 export const Calendar = () => {
-	const { handleModal } = useContext(ModalConext);
+	const { openLoginModal } = useModal();
 	const [calendars, setCalendars] = useState<IAdventCalendarItem[]>();
 	const [Inputs, setInputs] = useState<IInputs>({
 		focused: true,

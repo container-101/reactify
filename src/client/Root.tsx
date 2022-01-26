@@ -3,12 +3,13 @@ import App from "@src/shared/App";
 
 import { ToastContainer } from "react-toastify";
 import LocaleStore from "@src/core/context/LocaleStore";
-import ModalStore from "@src/core/context/ModalStore";
+import { ModalProvider } from "@src/core/context/ModalStore";
+import { ModalContainer } from "@src/components/containers";
 
 const Root = () => {
 	return (
 		<LocaleStore>
-			<ModalStore>
+			<ModalProvider>
 				<Router basename={process.env.PUBLIC_URL}>
 					<App />
 				</Router>
@@ -23,7 +24,8 @@ const Root = () => {
 					draggable
 					pauseOnHover
 				/>
-			</ModalStore>
+				<ModalContainer />
+			</ModalProvider>
 		</LocaleStore>
 	);
 };

@@ -1,27 +1,51 @@
-import React, { createContext, useState } from "react";
+import React, {
+	createContext,
+	FC,
+	useCallback,
+	useContext,
+	useState,
+} from "react";
 import type { TModal } from "../interface/modal";
 
-export const ModalConext = createContext({
-	modal: "",
-	handleModal: (modal: TModal) => {},
-});
-
-interface IModalStoreProps {
-	children: React.ReactNode;
+interface IModalContext {
+	modal: TModal | null;
+	modalOption: any;
+	openLoginModal: () => void;
+	closeModal: () => void;
 }
 
-const ModalStore = ({ children }: IModalStoreProps) => {
-	const [modal, setModal] = useState("");
+export const ModalContext = createContext<IModalContext>({
+	modal: null,
+	modalOption: null,
+	openLoginModal: () => {},
+	closeModal: () => {},
+});
 
-	const handleModal = (modal: TModal) => {
+export const useModal = (): IModalContext => useContext(ModalContext);
+
+export const ModalProvider: FC = ({ children }) => {
+	const [modal, setModal] = useState<TModal | null>(null);
+	const [modalOption, setModalOption] = useState<any>();
+
+	const openModal = useCallback((modal: TModal, modalOption?: any) => {
 		setModal(modal);
-	};
+		setModalOption(modalOption);
+	}, []);
+
+	const closeModal = useCallback(() => {
+		setModal(null);
+		setModalOption(null);
+	}, []);
+
+	const openLoginModal = useCallback(() => {
+		openModal("LOGIN", {});
+	}, [openModal]);
 
 	return (
-		<ModalConext.Provider value={{ modal, handleModal }}>
+		<ModalContext.Provider
+			value={{ modal, modalOption, openLoginModal, closeModal }}
+		>
 			{children}
-		</ModalConext.Provider>
+		</ModalContext.Provider>
 	);
 };
-
-export default ModalStore;
