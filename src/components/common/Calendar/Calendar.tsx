@@ -1,4 +1,5 @@
 import React, {
+	FC,
 	useCallback,
 	useContext,
 	useEffect,
@@ -10,6 +11,7 @@ import {
 	isSameDay,
 	ModifiersShape,
 } from "react-dates";
+import type { DayPickerSingleDateControllerShape } from "react-dates";
 import moment from "moment";
 import type { Moment } from "moment";
 
@@ -36,7 +38,9 @@ interface IInputs {
 	date: Moment | null;
 }
 
-export const Calendar = () => {
+export const Calendar: FC<Partial<DayPickerSingleDateControllerShape>> = (
+	props,
+) => {
 	const { openLoginModal } = useModal();
 	const [calendars, setCalendars] = useState<IAdventCalendarItem[]>();
 	const [Inputs, setInputs] = useState<IInputs>({
@@ -97,7 +101,9 @@ export const Calendar = () => {
 		);
 	}, []);
 
-	const handleDayCellClick = useCallback(() => {}, []);
+	const handleDayCellClick = useCallback(() => {
+		openLoginModal();
+	}, [openLoginModal]);
 
 	const renderDayContents = useCallback(
 		(day: moment.Moment, modifiers: ModifiersShape) => {
@@ -135,6 +141,7 @@ export const Calendar = () => {
 
 	return (
 		<DayPickerSingleDateController
+			{...props}
 			initialVisibleMonth={() => moment()}
 			isOutsideRange={(day) =>
 				!isInclusivelyAfterDay(

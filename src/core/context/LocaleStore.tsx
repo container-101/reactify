@@ -11,7 +11,7 @@ interface ILocaleStoreProps {
 }
 
 const LocaleStore = ({ children }: ILocaleStoreProps) => {
-	const [lang, setLang] = useState("ko");
+	const [lang, setLang] = useState("en");
 
 	const toggleLang = (inputLang: iLanguage) => {
 		setLang(lang === "ko" ? "en" : "ko");

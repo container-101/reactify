@@ -3,7 +3,7 @@ import queryString from "query-string";
 import { useLocation, useParams } from "react-router-dom";
 import { PageLayout } from "@src/components/layout";
 import useMouse from "@react-hook/mouse-position";
-import styles from "@styles/pages/profile.module.scss";
+import styles from "./profile.module.scss";
 
 const ProfilePage = () => {
 	const shadowRef = useRef(null);

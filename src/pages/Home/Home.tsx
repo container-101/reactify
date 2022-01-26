@@ -1,5 +1,5 @@
-import { FC } from "react";
-import styles from "@styles/pages/home.module.scss";
+import { FC, useCallback } from "react";
+import styles from "./home.module.scss";
 import { PageLayout } from "@src/components/layout";
 import { Calendar } from "@src/components/common";
 
