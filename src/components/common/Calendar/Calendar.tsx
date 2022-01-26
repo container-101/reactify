@@ -1,11 +1,4 @@
-import React, {
-	FC,
-	useCallback,
-	useContext,
-	useEffect,
-	useMemo,
-	useState,
-} from "react";
+import React, { FC, useCallback, useEffect, useMemo, useState } from "react";
 import {
 	DayPickerSingleDateController,
 	isSameDay,
@@ -24,7 +17,7 @@ import useWindowSize from "@core/hooks/useWindowSize";
 import { IAdventCalendarItem } from "@core/interface/advent-calendar";
 
 // Todo Remove Dummy Data & Change to API Call
-import { getAllCalendar } from "@core/api/advent-calendar";
+import { getAllCalendars } from "@core/api/advent-calendar";
 import { calendarAllData } from "@core/data/advent-calendar";
 import { isInclusivelyBeforeDay, isInclusivelyAfterDay } from "react-dates";
 import { useModal } from "@src/core/context/ModalStore";
@@ -41,6 +34,7 @@ interface IInputs {
 export const Calendar: FC<Partial<DayPickerSingleDateControllerShape>> = (
 	props,
 ) => {
+	const { width } = useWindowSize();
 	const { openLoginModal } = useModal();
 	const [calendars, setCalendars] = useState<IAdventCalendarItem[]>();
 	const [Inputs, setInputs] = useState<IInputs>({
@@ -62,6 +56,11 @@ export const Calendar: FC<Partial<DayPickerSingleDateControllerShape>> = (
 	useEffect(() => {
 		getCalendarData();
 	}, [getCalendarData]);
+
+	const DaySizeMemo = useMemo(() => {
+		if (!width || width > 900) return 120;
+		else return 80;
+	}, [width]);
 
 	const DateList = useMemo(() => {
 		let mapObj = new Map<string, IAdventCalendarItem>();
@@ -154,7 +153,7 @@ export const Calendar: FC<Partial<DayPickerSingleDateControllerShape>> = (
 				)
 			}
 			transitionDuration={300}
-			daySize={150}
+			daySize={DaySizeMemo}
 			numberOfMonths={1}
 			hideKeyboardShortcutsPanel
 			focused={Inputs.focused}
