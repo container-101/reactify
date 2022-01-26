@@ -5,6 +5,7 @@ import classNames from "classnames";
 import HeaderPopup from "@components/popup/HeaderPopup";
 import SideMenu from "./SideMenu/SideMenu";
 import styles from "./Header.module.scss";
+import { getImageURL } from "@utils/urls";
 
 const Header = () => {
 	const { t } = useTranslation("header");
@@ -22,7 +23,11 @@ const Header = () => {
 				<div className={(styles.content, styles.logo)}>
 					<div className={styles.item}>
 						<Link to="/">
-							<img className={styles.logo_img} src="/logo64.png" alt="logo" />
+							<img
+								className={styles.logo_img}
+								src={getImageURL("/logo64.png")}
+								alt="logo"
+							/>
 						</Link>
 					</div>
 				</div>
