@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import classNames from "classnames";
-import { btnSizes, btnStyles } from "@utils/constants";
+import { btnSizes, btnStyles } from "utils/constants";
 import styles from "./Button.module.scss";
 
 interface Props {

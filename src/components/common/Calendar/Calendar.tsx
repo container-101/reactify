@@ -13,14 +13,13 @@ import "react-dates/lib/css/_datepicker.css";
 import "./react_dates_overrides.scss";
 import styles from "./Calendar.module.scss";
 import { toast } from "react-toastify";
-import useWindowSize from "@core/hooks/useWindowSize";
-import { IAdventCalendarItem } from "@core/interface/advent-calendar";
+import useWindowSize from "core/hooks/useWindowSize";
+import { IAdventCalendarItem } from "core/interface/advent-calendar";
 
 // Todo Remove Dummy Data & Change to API Call
-import { getAllCalendars } from "@core/api/advent-calendar";
-import { calendarAllData } from "@core/data/advent-calendar";
+import { calendarAllData } from "core/data/advent-calendar";
 import { isInclusivelyBeforeDay, isInclusivelyAfterDay } from "react-dates";
-import { useModal } from "@src/core/context/ModalStore";
+import { useModal } from "core/context/ModalStore";
 
 // react dates
 export default React.PureComponent;

@@ -1,6 +1,5 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { framerSideMenuItem, framerSideNav } from "@src/utils/framerVar";
+import { framerSideMenuItem, framerSideNav } from "utils/framerVar";
 import styles from "./SideMenu.module.scss";
 
 interface ISideMenuProps {

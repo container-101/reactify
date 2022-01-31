@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { framerVar } from "@src/utils/framerVar";
-import { ITimerTime } from "@src/core/interface/timer";
+import { framerVar } from "utils/framerVar";
+import { ITimerTime } from "core/interface/timer";
 import classNames from "classnames";
 import styles from "./Timer.module.scss";
 

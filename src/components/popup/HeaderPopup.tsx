@@ -1,7 +1,7 @@
-import React, { useCallback, useContext } from "react";
-import i18n from "@src/utils/i18n";
-import { PopupLayout } from "@src/components/layout";
-import { LangConext } from "@src/core/context/LocaleStore";
+import { useCallback, useContext } from "react";
+import i18n from "utils/i18n";
+import { PopupLayout } from "components/layout";
+import { LangConext } from "core/context/LocaleStore";
 import styles from "./HeaderPopup.module.scss";
 
 interface IPopperProps {

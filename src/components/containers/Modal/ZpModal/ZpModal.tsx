@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from "react";
-import { Button, InputBox } from "@src/components/common";
+import { Button, InputBox } from "components/common";
 import styles from "./ZpModal.module.scss";
 
 interface IProps {

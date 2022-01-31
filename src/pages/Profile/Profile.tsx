@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import queryString from "query-string";
 import { useLocation, useParams } from "react-router-dom";
-import { PageLayout } from "@src/components/layout";
+import { PageLayout } from "components/layout";
 import useMouse from "@react-hook/mouse-position";
 import styles from "./profile.module.scss";
 

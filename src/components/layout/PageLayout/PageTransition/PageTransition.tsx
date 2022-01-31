@@ -1,6 +1,6 @@
-import { framerPageTrans } from "@src/utils/framerVar";
+import { framerPageTrans } from "utils/framerVar";
 import { AnimatePresence, motion } from "framer-motion";
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
 function PageTransition({ children }: { children: ReactNode }) {
 	return (

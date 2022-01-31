@@ -2,10 +2,10 @@ import React, { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import classNames from "classnames";
-import HeaderPopup from "@components/popup/HeaderPopup";
+import HeaderPopup from "components/popup/HeaderPopup";
 import SideMenu from "./SideMenu/SideMenu";
 import styles from "./Header.module.scss";
-import { getImageURL } from "@utils/urls";
+import { getImageURL } from "utils/urls";
 
 const Header = () => {
 	const { t } = useTranslation("header");

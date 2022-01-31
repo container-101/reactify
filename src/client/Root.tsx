@@ -1,10 +1,10 @@
 import { BrowserRouter as Router } from "react-router-dom";
-import App from "@src/shared/App";
+import App from "shared/App";
 
 import { ToastContainer } from "react-toastify";
-import LocaleStore from "@src/core/context/LocaleStore";
-import { ModalProvider } from "@src/core/context/ModalStore";
-import { ModalContainer } from "@src/components/containers";
+import LocaleStore from "core/context/LocaleStore";
+import { ModalProvider } from "core/context/ModalStore";
+import { ModalContainer } from "components/containers";
 
 const Root = () => {
 	return (

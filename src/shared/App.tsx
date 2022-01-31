@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import { Home, Profile } from "@src/pages";
+import { Home, Profile } from "pages";
 // import for global localization
-import "@utils/i18n";
-import "@styles/App.scss";
+import "utils/i18n";
+import "styles/App.scss";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 

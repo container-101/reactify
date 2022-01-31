@@ -1,7 +1,7 @@
 import React, { FocusEventHandler, useCallback, useRef } from "react";
-import { framerSidebar } from "@src/utils/framerVar";
+import { framerSidebar } from "utils/framerVar";
 import { motion, useCycle } from "framer-motion";
-import { useDimensions } from "@src/core/hooks/useDimensions";
+import { useDimensions } from "core/hooks/useDimensions";
 import SideNavigation from "./SideMenuNav";
 import SideMenuToggle from "./SideMenuToggle";
 import styles from "./SideMenu.module.scss";

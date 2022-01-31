@@ -1,7 +1,7 @@
-import { FC, useCallback } from "react";
+import { FC } from "react";
 import styles from "./home.module.scss";
-import { PageLayout } from "@src/components/layout";
-import { Calendar } from "@src/components/common";
+import { PageLayout } from "components/layout";
+import { Calendar } from "components/common";
 
 const Home: FC = () => {
 	return (
