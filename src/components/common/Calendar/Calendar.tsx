@@ -16,10 +16,10 @@ import { toast } from "react-toastify";
 import useWindowSize from "core/hooks/useWindowSize";
 import { IAdventCalendarItem } from "core/interface/advent-calendar";
 
-// Todo Remove Dummy Data & Change to API Call
+// Todo: Remove Dummy Data & Change to API Call
 import { calendarAllData } from "core/data/advent-calendar";
 import { isInclusivelyBeforeDay, isInclusivelyAfterDay } from "react-dates";
-import { useModal } from "core/context/ModalStore";
+import { useSignInModal } from "core/context/ModalContext";
 
 // react dates
 export default React.PureComponent;
@@ -34,7 +34,7 @@ export const Calendar: FC<Partial<DayPickerSingleDateControllerShape>> = (
 	props,
 ) => {
 	const { width } = useWindowSize();
-	const { openLoginModal } = useModal();
+	const openSignInModal = useSignInModal();
 	const [calendars, setCalendars] = useState<IAdventCalendarItem[]>();
 	const [Inputs, setInputs] = useState<IInputs>({
 		focused: true,
@@ -100,8 +100,8 @@ export const Calendar: FC<Partial<DayPickerSingleDateControllerShape>> = (
 	}, []);
 
 	const handleDayCellClick = useCallback(() => {
-		openLoginModal();
-	}, [openLoginModal]);
+		openSignInModal();
+	}, [openSignInModal]);
 
 	const renderDayContents = useCallback(
 		(day: moment.Moment, modifiers: ModifiersShape) => {
@@ -127,7 +127,7 @@ export const Calendar: FC<Partial<DayPickerSingleDateControllerShape>> = (
 							</>
 						) : (
 							<>
-								<div className={styles.plus}>+</div>
+								<div>+</div>
 								<div />
 							</>
 						))}

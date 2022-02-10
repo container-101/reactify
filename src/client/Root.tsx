@@ -1,10 +1,19 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import App from "shared/App";
 
+import "utils/i18n";
+
+import "normalize.css";
+import "styles/globals.scss";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+
 import { ToastContainer } from "react-toastify";
 import LocaleStore from "core/context/LocaleStore";
-import { ModalProvider } from "core/context/ModalStore";
+import { ModalProvider } from "core/context/ModalContext";
 import { ModalContainer } from "components/containers";
+
+axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
 
 const Root = () => {
 	return (

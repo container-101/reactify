@@ -1,37 +1,51 @@
-import React, { ChangeEvent, useState } from "react";
-import { Button, InputBox } from "components/common";
+import React, { useCallback, useState } from "react";
 import styles from "./SignInModal.module.scss";
+import { SignInInputShape } from "core/interface/modal-input-shape";
+import { Button, InputBox } from "components/common";
 
-interface IProps {
-	onClose: () => void;
-}
-
-interface IInputs {
-	email: string;
-	pwd: string;
-}
-
-const SignInModal = ({ onClose }: IProps) => {
-	const [Inputs, setInputs] = useState<IInputs>({
+const SignInModal = () => {
+	const [Inputs, setInputs] = useState<SignInInputShape>({
 		email: "",
-		pwd: "",
+		password: "",
 	});
 
-	const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+	const handleOnChange = useCallback((e) => {
 		const { name, value } = e.target;
-		console.log(name, value);
-	};
+		setInputs((prev) => ({
+			...prev,
+			[name]: value,
+		}));
+	}, []);
+
+	const handleSubmit = useCallback(() => {
+		// do something
+	}, []);
 
 	return (
 		<div className={styles.cnt}>
 			<InputBox
-				value={Inputs?.email}
+				type="email"
 				name="email"
-				contentName="E-mail"
+				label="Email"
+				placeholder="이메일"
+				value={Inputs.email}
 				onChange={handleOnChange}
 			/>
-			<Button fullWidth btnStyles="secondary">
-				로그인
+			<InputBox
+				type="email"
+				name="password"
+				label="Password"
+				placeholder="패스워드"
+				value={Inputs.password}
+				onChange={handleOnChange}
+			/>
+			<Button
+				fullWidth
+				btnStyles="primary"
+				type="submit"
+				onClick={handleSubmit}
+			>
+				Sign In
 			</Button>
 		</div>
 	);

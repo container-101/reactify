@@ -1,53 +1,46 @@
-import React, { ChangeEventHandler, MouseEventHandler } from "react";
 import classNames from "classnames";
+import React, { FC, ChangeEventHandler, MouseEventHandler } from "react";
 import styles from "./InputBox.module.scss";
-
-interface Props {
-	type?: "id" | "password";
-	value: string | number;
-	error?: string | boolean;
-	className?: string;
-	placeholder?: string;
+interface InputBoxShape {
+	type: "id" | "email" | "password";
 	name: string;
-	contentName?: string | "E-mail" | "Password";
+	value: string | number;
+	label: string;
+	error?: boolean;
+	placeholder?: string;
 	readOnly?: boolean;
-	fontSize?: number;
-	onChange?: ChangeEventHandler<HTMLInputElement>;
+	onChange: ChangeEventHandler<HTMLInputElement>;
 	onClick?: MouseEventHandler<HTMLInputElement>;
 }
 
-export default function InputBox({
-	type = "id",
-	value,
-	error = "",
-	className,
+const InputBox: FC<InputBoxShape> = ({
+	type,
 	name,
-	contentName,
+	value,
+	label,
+	error = false,
 	placeholder,
 	readOnly,
-	fontSize,
 	onChange,
 	onClick,
-}: Props): JSX.Element {
+}) => {
 	return (
-		<div className={classNames(className, styles.container)}>
-			{contentName && <label htmlFor={contentName}>{contentName}</label>}
+		<div>
+			<label htmlFor={name} className={styles.label}>
+				{label}
+			</label>
 			<input
-				type={type}
 				className={classNames(styles.input, { [styles.error]: error })}
+				type={type}
+				name={name}
+				placeholder={placeholder}
+				value={value}
+				readOnly={readOnly}
 				onChange={onChange}
 				onClick={onClick}
-				name={name}
-				value={value}
-				style={{ fontSize }}
-				readOnly={readOnly}
-				placeholder={placeholder ? placeholder : `Enter your ${contentName}`}
 			/>
-			{typeof error === "string" && error && (
-				<div className={styles.error_text}>
-					<span>{error}</span>
-				</div>
-			)}
 		</div>
 	);
-}
+};
+
+export default InputBox;

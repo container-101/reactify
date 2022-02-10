@@ -19,16 +19,6 @@ const ModalBase: FC<IModalBase> = ({ show, onClose, children }: IModalBase) => {
 			/>
 			<div className={styles.modal_con}>
 				<div className={styles.contents}>{children}</div>
-				<div className={styles.bottom}>
-					<button
-						type="button"
-						onClick={() => {
-							onClose();
-						}}
-					>
-						모달 닫기
-					</button>
-				</div>
 			</div>
 		</div>
 	);

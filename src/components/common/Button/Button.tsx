@@ -3,17 +3,19 @@ import classNames from "classnames";
 import { btnSizes, btnStyles } from "utils/constants";
 import styles from "./Button.module.scss";
 
-interface Props {
+interface ButtonShape {
 	type?: "button" | "submit" | "reset";
 	className?: string;
 	btnSize?: btnSizes;
 	btnStyles?: btnStyles;
+	active?: boolean;
 	hover?: boolean;
 	focus?: boolean;
 	disabled?: boolean;
 	social?: "google";
 	fullWidth?: boolean;
 	children?: React.ReactNode;
+	onClick?: () => void;
 }
 
 const Button = (
@@ -22,26 +24,29 @@ const Button = (
 		className,
 		btnSize = "medium",
 		btnStyles = "default",
+		active = false,
 		hover = false,
 		focus = false,
 		disabled = false,
 		social,
 		fullWidth,
 		children,
-		...props
-	}: Props,
+		onClick,
+	}: ButtonShape,
 	ref: React.Ref<HTMLButtonElement>,
 ) => {
 	return (
 		<button
 			ref={ref}
 			type={type}
+			onClick={onClick}
 			className={classNames(
 				className,
 				styles.ctn,
 				styles[btnStyles],
 				styles[btnSize],
 				{
+					[styles.active]: active,
 					[styles.fullWidth]: fullWidth,
 					[styles.hover]: hover,
 					[styles.focus]: focus,
@@ -49,7 +54,6 @@ const Button = (
 					[styles.google]: social === "google",
 				},
 			)}
-			{...props}
 		>
 			{children}
 		</button>
