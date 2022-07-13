@@ -1,2 +1,2 @@
-export { default as PageLayout } from "./PageLayout/PageLayout";
-export { default as PopupLayout } from "./PopupLayout/PopupLayout";
+export { default as PageLayout } from './PageLayout'
+export { default as CommonLayout } from './CommonLayout'

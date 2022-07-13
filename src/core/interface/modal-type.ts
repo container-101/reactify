@@ -1,4 +1,3 @@
-export type SignInModal = "SIGNIN";
-export type SignUpModal = "SIGNUP";
+export type SampleModal = 'SAMPLE';
 
-export type ModalShape = SignInModal | SignUpModal;
+export type ModalType = SampleModal;

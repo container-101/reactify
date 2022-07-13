@@ -1,26 +1,30 @@
-import React, { FC } from "react";
-import ModalPortal from "./ModalPortal";
-import ModalBase from "./ModalBase";
-import { SignInModal } from "components/containers";
-import { ModalShape } from "core/interface/modal-type";
-import { useCloseModal, useModalInfo } from "core/context/ModalContext";
+import React, { FC } from 'react';
+import ModalPortal from './ModalPortal';
+import ModalBase from './ModalBase';
+import { SampleModalContent } from './Content';
+import { ModalType } from '@/core/interface/modal-type';
+import { useRecoilState, useResetRecoilState } from 'recoil';
+import { modalSelector } from '@/store/modalAtom';
+
+const selectRenderingModal: { [keys in ModalType]: JSX.Element } = {
+  SAMPLE: <SampleModalContent />,
+};
 
 const ModalContainer: FC = () => {
-	const modalInfo = useModalInfo();
-	const closeModal = useCloseModal();
+  const [modal, setModal] = useRecoilState(modalSelector);
+  const resetModalState = useResetRecoilState(modalSelector);
 
-	const SelectRenderingModal: { [keys in ModalShape]: JSX.Element } = {
-		SIGNIN: <SignInModal />,
-		SIGNUP: <div>{"not defined"}</div>,
-	};
-
-	return (
-		<ModalPortal>
-			<ModalBase onClose={closeModal} show={modalInfo ? true : false}>
-				{modalInfo ? SelectRenderingModal[modalInfo] : null}
-			</ModalBase>
-		</ModalPortal>
-	);
+  return (
+    <ModalPortal>
+      <ModalBase
+        title={modal.title ? modal.title : ''}
+        show={modal.name ? true : false}
+        onClose={resetModalState}
+      >
+        {modal.name && selectRenderingModal[modal.name]}
+      </ModalBase>
+    </ModalPortal>
+  );
 };
 
 export default ModalContainer;

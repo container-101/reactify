@@ -1,7 +1,5 @@
-export { default as Button } from "./Button/Button";
-export { Calendar } from "./Calendar/Calendar";
-export { default as HorizontalLine } from "./HorizontalLine/HorizontalLine";
-export { default as InputBox } from "./InputBox/InputBox";
-export { default as Map } from "./Map/Map";
-export { default as Timer } from "./Timer/Timer";
-export { default as Range } from "./Range/Range";
+export { default as Button } from './Button/Button';
+export { default as Icon } from './Icon/Icon';
+export { default as IconButton } from './Icon/IconButton';
+
+export { default as ImageWrapper } from './ImageWrapper';
