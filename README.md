@@ -1,29 +1,48 @@
-# React Boilerplate for [woodi97](https://github.com/woodi97)
+# Reactify
 
-## 코드 작성전 유의사항
+## What is it?
 
-```list
-1. vscode 설치
-2. vscode market에서 prettier 설치
-3. vscode market에서 eslint 설치
-4. cp .env.example .env.local 후 Key 채워넣기
-```
+React Boilerplate Repository
 
-## 저장할때마다 코드 자동 prettieerc & eslintrc 적용하는 방법
+## 시작하기 전
 
-```list
-1. VS Code에서 settings.json파일을 들어간다(윈도우, 리눅스에서는 Ctrl + ,, 맥에서는 Cmd + , 를 누르고 오른쪽 위에 작은 문서 아이콘 누르면 settings.json 볼 수 있음)
-2. 아래 내용을 붙여넣기
-{
-    // Set the default
-    "editor.formatOnSave": true,
-    // per-language
-    "[javascript]": {
-    "editor.formatOnSave": false
-    },
-    "editor.codeActionsOnSave": {
-    // For ESLint
-    "source.fixAll.eslint": true
-    }
+### 사이트 설정 및 개발시 주의사항
+
+```js
+const appConfig = {
+    notchColor: '#f8eee2',
+    headerHeight: '3rem',
+    bottomNavigationHeight: '5rem',
+    sidePadding: '1rem',
+    backgroundColor: '#fff8e5',
+    mobileAppMaxWidth: '768px',
 }
 ```
+
+#### 1. src/core/config/appConfig.js에 있는 설정 파일을 수정해주세요.
+
+- 해당 파일은 tailwindconfig.js, header, bottom navigtaion 등에서 사용됩니다
+
+#### 2. 페이지를 제작할때 최상단 컴포넌트는 PageLayout으로 감싸주세요
+
+- fixedHeight, fullWidth등을 지원하며 fixedHeight의 경우 모바일 브라우저에서도 작동합니다
+
+## Husky Hook 설정 방법
+
+### precommit hook 설정
+
+```bash
+1. ./husky/pre-commit.sh에 필요한 커맨드 추가
+```
+
+### prepush hook 설정
+
+```bash
+1. ./husky/pre-push.sh에 필요한 커맨드 추가
+```
+
+### 현재 husky hook 상태
+
+1. commit 시 build 테스트 통과 여부 확인
+2. commit 시 package.json 에 설정된 lint-staged 명령어 셋 통과 여부 확인
+
