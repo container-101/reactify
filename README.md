@@ -10,13 +10,13 @@ React Boilerplate Repository
 
 ```js
 const appConfig = {
-    notchColor: '#f8eee2',
-    headerHeight: '3rem',
-    bottomNavigationHeight: '5rem',
-    sidePadding: '1rem',
-    backgroundColor: '#fff8e5',
-    mobileAppMaxWidth: '768px',
-}
+  notchColor: '#f8eee2',
+  headerHeight: '3rem',
+  bottomNavigationHeight: '5rem',
+  sidePadding: '1rem',
+  backgroundColor: '#fff8e5',
+  mobileAppMaxWidth: '768px',
+};
 ```
 
 #### 1. src/core/config/appConfig.js에 있는 설정 파일을 수정해주세요.
@@ -45,4 +45,3 @@ const appConfig = {
 
 1. commit 시 build 테스트 통과 여부 확인
 2. commit 시 package.json 에 설정된 lint-staged 명령어 셋 통과 여부 확인
-
