@@ -56,7 +56,7 @@ const Button = (
       className={cx(
         selectSize[size],
         selectStyle[styles],
-        'transition-colors bg-slate focus:shadow-outline duration-150',
+        'transition-colors focus:shadow-outline duration-150',
         disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer',
         fullWidth ? 'w-full' : '',
         className,

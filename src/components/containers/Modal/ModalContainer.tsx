@@ -4,7 +4,7 @@ import ModalBase from './ModalBase';
 import { SampleModalContent } from './Content';
 import { ModalType } from '@/core/interface/modal-type';
 import { useRecoilState, useResetRecoilState } from 'recoil';
-import { modalSelector } from '@/store/modalAtom';
+import { modalSelector } from '@/atom/modalAtom';
 
 const selectRenderingModal: { [keys in ModalType]: JSX.Element } = {
   SAMPLE: <SampleModalContent />,

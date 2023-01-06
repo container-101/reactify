@@ -14,6 +14,7 @@ import { RiKakaoTalkFill } from 'react-icons/ri';
 import { FaSearch } from 'react-icons/fa';
 import { BiVideo } from 'react-icons/bi';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import cx from 'classnames';
 
 export type SVGTypes =
   | 'house'
@@ -56,9 +57,15 @@ const _Selector: { [key in SVGTypes]: FC<IconProps> } = {
   kakao: RiKakaoTalkFill,
 };
 
-const Icon: FC<IconProps> = ({ name, ...props }) => {
+const Icon: FC<IconProps> = ({ name, className, ...props }) => {
   const IconComponent = _Selector[name];
-  return <IconComponent name={name} {...props} />;
+  return (
+    <IconComponent
+      className={cx('pointer-events-none', className)}
+      name={name}
+      {...props}
+    />
+  );
 };
 
 export default memo(Icon);

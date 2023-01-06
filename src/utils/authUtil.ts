@@ -10,7 +10,7 @@ export const setAuthToken = (token: string) => {
 export const getAuthToken = (): string => {
   const token =
     Cookies.get('jwt')?.toString() ||
-    axios.defaults.headers.common['Authorization'].toString() ||
+    axios.defaults.headers.common['Authorization']?.toString() ||
     '';
   return token;
 };
