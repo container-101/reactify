@@ -4,17 +4,11 @@ import { motion } from 'framer-motion';
 
 type Props = {
   className?: string;
-  fixed?: boolean;
   transparent?: boolean;
   content: React.ReactNode;
 };
 
-const Header: FC<Props> = ({
-  className,
-  fixed = false,
-  transparent = false,
-  content,
-}) => {
+const Header: FC<Props> = ({ className, transparent = false, content }) => {
   return (
     <header className="relative">
       <motion.div
@@ -22,7 +16,7 @@ const Header: FC<Props> = ({
         animate="enter"
         exit="exit"
         className={cx(
-          'z-20 w-full max-w-mobile-app h-gb-header top-0',
+          'z-20 w-full max-w-screen-default h-gb-header top-0',
           'px-side-padding py-2',
           'flex justify-between items-center align-middle',
           'font-bold',

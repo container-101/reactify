@@ -4,63 +4,35 @@
 
 @layer base {
   h1 {
-    @apply text-2xl md:text-3xl font-bold;
+    @apply text-2xl font-bold;
   }
 
   h2 {
-    @apply text-xl md:text-2xl font-bold;
+    @apply text-xl font-bold;
   }
 
   h3 {
-    @apply text-lg md:text-xl font-bold;
+    @apply text-lg font-bold;
   }
 
   h4 {
-    @apply text-base md:text-lg;
+    @apply text-base;
   }
 
   h5 {
-    @apply text-sm md:text-base;
+    @apply text-sm;
   }
 
   h6 {
-    @apply text-xs md:text-sm;
+    @apply text-xs;
   }
 
   p {
-    @apply text-base md:text-lg;
+    @apply text-base;
   }
 }
 
 @layer components {
-  .h1 {
-    @apply text-2xl md:text-3xl font-bold;
-  }
-
-  .h2 {
-    @apply text-xl md:text-2xl font-bold;
-  }
-
-  .h3 {
-    @apply text-lg md:text-xl font-bold;
-  }
-
-  .h4 {
-    @apply text-base md:text-lg;
-  }
-
-  .h5 {
-    @apply text-sm md:text-base;
-  }
-
-  .h6 {
-    @apply text-xs md:text-sm;
-  }
-
-  .p {
-    @apply text-base md:text-lg;
-  }
-
   .translate-center-x {
     top: 50%;
     left: 0%;

@@ -12,7 +12,6 @@ const PageLayout: FC<{
   fullWidth?: boolean;
   fixedHeight?: boolean;
   disableTransition?: boolean;
-  headerFixed?: boolean;
   headerTransparent?: boolean;
   headerBackgroundColor?: string;
   headerContent?: React.ReactNode;
@@ -21,14 +20,9 @@ const PageLayout: FC<{
   fullWidth = false,
   fixedHeight = false,
   disableTransition = false,
-  headerFixed = false,
   headerTransparent = false,
   headerBackgroundColor,
-  headerContent = (
-    <h2 className="uppercase text-center w-full">
-      {import.meta.env.APP_TITLE}
-    </h2>
-  ),
+  headerContent = <div>exampleHeaderContent</div>,
 }) => {
   const mainRef = useRef<HTMLDivElement>(null);
 
@@ -54,7 +48,6 @@ const PageLayout: FC<{
       transition={{ type: 'linear' }}
     >
       <Header
-        fixed={headerFixed}
         transparent={headerTransparent}
         className={headerBackgroundColor}
         content={headerContent}
@@ -63,7 +56,7 @@ const PageLayout: FC<{
         ref={mainRef}
         className={cx(
           'relative m-center w-full h-screen pt-gb-header pb-bt-nav',
-          fullWidth ? null : `max-w-mobile-app px-side-padding`,
+          fullWidth ? null : `max-w-screen-default px-side-padding`,
           fixedHeight ? 'overflow-hidden' : 'min-h-screen',
         )}
       >

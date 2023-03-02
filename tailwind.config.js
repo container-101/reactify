@@ -8,7 +8,7 @@ module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     screens: {
-      md: appConfig.mobileAppMaxWidth,
+      default: appConfig.appMaxWidth,
     },
     extend: {
       margin: {
@@ -20,7 +20,7 @@ module.exports = {
         'side-padding': appConfig.sidePadding,
       },
       maxWidth: {
-        'mobile-app': appConfig.mobileAppMaxWidth,
+        default: appConfig.mobileAppMaxWidth,
       },
 
       colors: {
